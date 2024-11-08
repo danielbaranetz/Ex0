@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.Scanner;
 
 public class Ex0 {
@@ -10,10 +11,11 @@ public class Ex0 {
             if (scanner.hasNextInt()) {
                 number = scanner.nextInt();
 
-                if (number > 4 && number % 2 == 0) {
-                    for ( int i = 2; i <=  number/2; i++) {
-                        if (i % 2 != 0 || i==2) {
-                            System.out.println(i);
+                if (number > 4 && number % 2 == 0) { // accept only numbers that higher than 4 and even
+                    for ( int i = 2; i <=  number; i++) {
+                        if (isPrime(i) && isPrime(number - i)) {
+                            System.out.println("a) "+ i + " + " + (number - i) + " = " + number);
+                            break;
                         }
                     }
                 break;
@@ -22,9 +24,20 @@ public class Ex0 {
                 }
             } else {
                 System.out.println("Thats not a valid integer. Please try again.");
-                scanner.next(); // clear invalid input
+                scanner.next();
             }
         }
 
+    }
+    public static boolean isPrime(int n) {
+        if (n == 2) return true;
+        if (n % 2 == 0) return false;
+
+        for (int i = 3; i * i <= n; i += 2) { //
+            if (n % i == 0){
+                return false;
+            }
+        }
+        return true;
     }
 }
