@@ -18,6 +18,19 @@ public class Ex0 {
                             break;
                         }
                     }
+                    for ( int i = 2; i <=  number; i++) {
+                        if (isPrime(i) && isPrime(number + i)) {
+                            System.out.println("b) "+ (number + i) + " - " + (i) + " = " + number);
+                            break;
+                        }
+                    }
+                    List<Object> myList = new ArrayList<>();
+                    for ( int i = 2; i <=  number; i++) {
+                        if (isPrime(i)) {
+                            myList.add(i);
+                        }
+                    }
+                    System.out.printf("c) There are %d prime numbers in %s%n", myList.size(), "[" + myList.getFirst() + "," + myList.getLast() + "]");
                 break;
                 } else {
                     System.out.println("The number must be greater than 4 and even. Please try again.");
@@ -32,7 +45,6 @@ public class Ex0 {
     public static boolean isPrime(int n) {
         if (n == 2) return true;
         if (n % 2 == 0) return false;
-
         for (int i = 3; i * i <= n; i += 2) { //
             if (n % i == 0){
                 return false;
