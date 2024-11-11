@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Ex0 {
     public static void main(String[] args) {
-        long startTime = System.nanoTime();  // Start time
-
         Scanner scanner = new Scanner(System.in);
         int number;
 
@@ -14,6 +12,8 @@ public class Ex0 {
                 number = scanner.nextInt();
 
                 if (number > 4 && number % 2 == 0) { // accept only numbers that higher than 4 and even
+                    long startTime = System.nanoTime();  // Start time
+
                     for ( int i = 2; i <=  number; i++) {
                         if (isPrime(i) && isPrime(number - i)) {
                             System.out.println("a) "+ i + " + " + (number - i) + " = " + number);
@@ -32,24 +32,31 @@ public class Ex0 {
                             myList.add(i);
                         }
                     }
-                    System.out.printf("c) There are %d prime numbers in %s%n", myList.size(), "[" + myList.get(0) + "," + myList.get(myList.size() - 1) + "]");
+                    System.out.printf("c) There are %d prime numbers in %s%n", myList.size(), "[" + myList.getFirst() + "," + myList.getLast() + "]");
 
                     List<Integer> primeNumbers = new ArrayList<>();
                     for ( int i = 2; i <=  number; i++) {
-                        if (isPrime(i) && (number % i == 0)) {
+                        while (number % i == 0) {
                             primeNumbers.add(i);
+                            number = number / i;
                         }
                     }
-                    StringBuilder result = new StringBuilder("d) ");
+                    StringBuilder result = new StringBuilder();
+                    int product = 1;
                     for (int i = 0; i < primeNumbers.size(); i++) {
-                        result.append(primeNumbers.get(i));
-
+                        result.append(primeNumbers.get(i)); // Append the factor
+                        product *= primeNumbers.get(i);
                         if (i < primeNumbers.size() - 1) {
                             result.append(" * ");
                         }
                     }
-                    result.append(" = ").append(number);
-                    System.out.println(result.toString());
+                    result.append(" = ").append(product);
+
+                    // Print the result
+                    System.out.println("d) " + result.toString());
+                    long endTime = System.nanoTime();  // End time
+                    double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // Convert to seconds
+                    System.out.printf("e) %.2f seconds, the program runtime%n", durationSeconds);
                     break;
                 } else {
                     System.out.println("The number must be greater than 4 and even. Please try again.");
@@ -59,9 +66,6 @@ public class Ex0 {
                 scanner.next();
             }
         }
-        long endTime = System.nanoTime();  // End time
-        double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // Convert to seconds
-        System.out.printf("e) %.2f seconds, the program runtime%n", durationSeconds);
         System.out.println("f) ID: 208291377");
     }
 
