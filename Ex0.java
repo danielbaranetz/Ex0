@@ -15,20 +15,20 @@ public class Ex0 {
                     long startTime = System.nanoTime();  // Start time
 
                     for ( int i = 2; i <=  number; i++) {
-                        if (isPrime(i) && isPrime(number - i)) {
+                        if (primeNumbers(i) && primeNumbers(number - i)) {
                             System.out.println("a) "+ i + " + " + (number - i) + " = " + number);
                             break;
                         }
                     }
                     for ( int i = 2; i <=  number; i++) {
-                        if (isPrime(i) && isPrime(number + i)) {
+                        if (primeNumbers(i) && primeNumbers(number + i)) {
                             System.out.println("b) "+ (number + i) + " - " + (i) + " = " + number);
                             break;
                         }
                     }
                     List<Object> myList = new ArrayList<>();
                     for ( int i = 2; i <=  number; i++) {
-                        if (isPrime(i)) {
+                        if (primeNumbers(i)) {
                             myList.add(i);
                         }
                     }
@@ -63,13 +63,12 @@ public class Ex0 {
                 }
             } else {
                 System.out.println("Thats not a valid integer. Please try again.");
-                scanner.next();
+                scanner.nextLine();
             }
         }
         System.out.println("f) ID: 208291377");
     }
-
-    public static boolean isPrime(int n) {
+    public static boolean primeNumbers(int n) {
         if (n == 2) return true;
         if (n % 2 == 0) return false;
         for (int i = 3; i * i <= n; i += 2) { //
