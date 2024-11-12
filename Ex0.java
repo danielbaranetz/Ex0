@@ -56,7 +56,7 @@ public class Ex0 {
                     System.out.println("d) " + result.toString());
                     long endTime = System.nanoTime();  // End time
                     double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // Convert to seconds
-                    System.out.printf("e) %.2f seconds, the program runtime%n", durationSeconds);
+                    System.out.printf("e) The program runtime took %.2f seconds%n", durationSeconds);
                     break;
                 } else {
                     System.out.println("The number must be greater than 4 and even. Please try again.");
