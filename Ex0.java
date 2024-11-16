@@ -1,4 +1,5 @@
 /*
+ID: 208291377
 *****************************************************
 how the code should be in my own words step by step:
 1. ask the user to insert a number that even and greater than 4
@@ -7,13 +8,51 @@ how the code should be in my own words step by step:
 4. call the function in every section to get only the prime numbers
 5. for section (a) take the number and subtract number with i and check in prime function if its prime and print it x + y = number
 6. for section (b) take the number and add number with i and check in prime function if its prime and print it as x - y = number
-7. for section (c) create primeCounter = 0 and check with primeNumber function if i is prime and add 1 to primeCounter every time
+7. for section (c) create primeCounter = 0 and check with primeNumber function if I is prime and add 1 to primeCounter every time
 8. for section (d) take number and check if divisible with i without remainder, store each factor in a list, and print the list with the factors multiplied together.
 9. for section (e) set in the start of the function  system.nanotime till the end of the function and do the same and calculate delta (end - start) and divide by 1_000_000_000.0 to get seconds
 10. for section (f) print my id number
 *****************************************************
 
+*****************************************************
+pseudocode:
 
+
+Input(number) // user to input a number greater than 4 and even
+while (true) { // start loop
+    if (number is valid integer) { // validate input
+        if (number > 4 and number is even) { // check if number is valid (greater than 4 and even)
+            for (i = 2; i <= number; i++) {
+                if (primeNumbers(i) and primeNumbers(number - i)) {
+                    print("a) i + (number - i) = number")
+                }
+             }
+             for (i = 2; i <= number; i++) {
+                 if (primeNumbers(i) and primeNumbers(number + i)) {
+                     print("b) (number + i) - i = number")
+                 }
+             }
+             primeCounter = count primes between 2 and number
+             print("c) There are {primeCounter} prime numbers between 2 and number")
+             print("d) Prime factorization of number: result")
+             print("f) ID: 208291377") // Print ID
+         } else {
+             print("The number must be greater than 4 and even. Try again.")
+         }
+     } else {
+         print("Invalid input. Please enter an integer.")
+     }
+ }
+ Function primeNumbers(n) { // Check if n is prime
+     if (n == 2) return true // 2 is prime
+     if (n is even) return false // Even numbers are not prime
+     for (i = 3; i * i <= n; i++) { // Check divides from 3
+         if (n % i == 0) return false // Not prime if divisible
+     }
+     return true // Return true if n is prime
+ }
+
+*****************************************************
  */
 
 import java.util.*;
@@ -50,7 +89,7 @@ public class Ex0 {
                             primeCounter++;
                         }
                     }
-                    System.out.printf("c) There are %d prime numbers in %s%n", primeCounter, "beetween (2 "  + "- " + number + ")" );
+                    System.out.printf("c) There are %d prime numbers %s%n", primeCounter, "between (2 "  + "- " + number + ")" );
 
                     List<Integer> primeNumbers = new ArrayList<>();
                     for ( int i = 2; i <=  number; i++) {
@@ -71,7 +110,7 @@ public class Ex0 {
                     result.append(" = ").append(product);
 
                     // Print the result
-                    System.out.println("d) " + result.toString());
+                    System.out.println("d) " + result);
                     long endTime = System.nanoTime();  // End time
                     double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // Convert to seconds
                     System.out.printf("e) The program runtime took %.2f seconds%n", durationSeconds);
