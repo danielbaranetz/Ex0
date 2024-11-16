@@ -2,6 +2,7 @@
 ID: 208291377
 *****************************************************
 how the code should be in my own words step by step:
+
 1. ask the user to insert a number that even and greater than 4
 2.if the number is greater than 4 and even start count the prime numbers. else ask again to insert a valid number
 3.create function with 1 parameter that check if the number is prime
@@ -35,21 +36,21 @@ while (true) { // start loop
              primeCounter = count primes between 2 and number
              print("c) There are {primeCounter} prime numbers between 2 and number")
              print("d) Prime factorization of number: result")
-             print("f) ID: 208291377") // Print ID
+             print("f) ID: 208291377") // print ID
          } else {
              print("The number must be greater than 4 and even. Try again.")
          }
      } else {
-         print("Invalid input. Please enter an integer.")
+         print("Invalid input. please enter an integer.")
      }
  }
- Function primeNumbers(n) { // Check if n is prime
+ Function primeNumbers(n) { // check if n is prime
      if (n == 2) return true // 2 is prime
-     if (n is even) return false // Even numbers are not prime
-     for (i = 3; i * i <= n; i++) { // Check divides from 3
-         if (n % i == 0) return false // Not prime if divisible
+     if (n is even) return false // even numbers are not prime
+     for (i = 3; i * i <= n; i++) { // check divides from 3
+         if (n % i == 0) return false // not prime if divisible
      }
-     return true // Return true if n is prime
+     return true // return true if n is prime
  }
 
 *****************************************************
@@ -69,7 +70,7 @@ public class Ex0 {
                 number = scanner.nextInt();
 
                 if (number > 4 && number % 2 == 0) { // accept only numbers that higher than 4 and even
-                    long startTime = System.nanoTime();  // Start time
+                    long startTime = System.nanoTime();  // start time
 
                     for ( int i = 2; i <=  number; i++) {
                         if (primeNumbers(i) && primeNumbers(number - i)) {
@@ -94,8 +95,8 @@ public class Ex0 {
                     List<Integer> primeNumbers = new ArrayList<>();
                     for ( int i = 2; i <=  number; i++) {
                         while (number % i == 0) {
-                            primeNumbers.add(i);
                             number = number / i;
+                            primeNumbers.add(i);
                         }
                     }
                     StringBuilder result = new StringBuilder();
@@ -111,8 +112,8 @@ public class Ex0 {
 
                     // Print the result
                     System.out.println("d) " + result);
-                    long endTime = System.nanoTime();  // End time
-                    double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // Convert to seconds
+                    long endTime = System.nanoTime();  // end time
+                    double durationSeconds = (endTime - startTime) / 1_000_000_000.0;  // convert to seconds
                     System.out.printf("e) The program runtime took %.2f seconds%n", durationSeconds);
                     break;
                 } else {
