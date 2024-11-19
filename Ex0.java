@@ -82,7 +82,6 @@ public class Ex0 {
                     System.out.println("f) ID: 208291377");
                     break;
 
-
                 } else {
                     System.out.println("The number must be greater than 4 and even. Please try again.");
                 }
